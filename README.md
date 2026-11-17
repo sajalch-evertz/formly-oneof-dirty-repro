@@ -17,8 +17,6 @@ No UI theme package. [`src/formly-config.ts`](src/formly-config.ts) registers th
 [JSON Schema guide](https://formly.dev/docs/guides/json-schema) needs: an input, a select, and
 core's `formly-group` for `object` and `multischema`.
 
-Also checked on 11.3.0 (Angular 22, TypeScript 6): same result.
-
 ## Run it
 
 ```bash
