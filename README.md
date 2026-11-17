@@ -52,25 +52,6 @@ if (!field.form || !hasKey(field)) {
 so the selector's `FormControl` is never attached to the form. A user selection marks that
 detached control dirty, and the root form never hears about it.
 
-## Suggested fix
-
-Have the selector mark the root form dirty when the user changes it, in `resolveMultiSchema()`:
-
-```ts
-props: {
-  // ...existing props
-  change: (f) => {
-    let root = f;
-    while (root.parent) root = root.parent;
-    root.formControl?.markAsDirty();
-  },
-},
-```
-
-`props.change` is used rather than `valueChanges` on purpose: the `hide` expression calls
-`control.setValue(...)` to pick the initial branch, which would mark the form dirty on load.
-`props.change` only fires on a real user event.
-
 ## Consumer workaround
 
 After `toFieldConfig()`, set the same `change` on every `multischema` selector:
