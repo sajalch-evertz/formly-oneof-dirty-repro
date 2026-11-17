@@ -1,0 +1,9 @@
+/* Bootstrap covers the rest. */
+
+  margin-bottom: 0.25rem;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}

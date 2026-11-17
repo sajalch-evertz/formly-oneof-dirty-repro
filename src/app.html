@@ -1,0 +1,16 @@
+<div class="container py-4" style="max-width: 640px">
+  <h1 class="h4">ngx-formly: switching a <code>oneOf</code> branch leaves the form pristine</h1>
+  <ol class="text-secondary">
+    <li>Select <b>File</b> in the branch selector.</li>
+    <li>The model changes (see below), so the form no longer holds what it loaded with.</li>
+    <li><code>form.dirty</code> stays <code>false</code> and <b>Discard</b> stays disabled.</li>
+  </ol>
+
+  <form [formGroup]="form" class="mb-3">
+    <formly-form [fields]="fields" [form]="form" [model]="model" />
+  </form>
+
+  <button type="button" class="btn btn-primary btn-sm" [disabled]="!form.dirty" (click)="discard()">Discard</button>
+  <p class="mt-2 mb-1"><code>form.dirty</code> = <b id="dirty">{{ form.dirty }}</b></p>
+  <pre class="small" id="model">{{ model | json }}</pre>
+</div>
